@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 5694343380733737546}
   - component: {fileID: 7579955439834830372}
   - component: {fileID: 1236163184039209689}
+  - component: {fileID: -1982717120540135352}
   m_Layer: 3
   m_Name: Dragon
   m_TagString: Enemy
@@ -154,3 +155,20 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.0001, y: 0.0001}
   m_EdgeRadius: 0
+--- !u!114 &-1982717120540135352
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4284668351328655054}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ba1ddd628f919947b26ea23a3a11a52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveTime: 0
+  blockigLayer:
+    serializedVersion: 2
+    m_Bits: 8
+  playerDamage: 20
