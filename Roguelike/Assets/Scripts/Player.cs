@@ -14,6 +14,8 @@ public class Player : MovingObject
     private Animator animator;
     private int food;
 
+    bool verticalInputInUse = false, horizontalInputInUse = false;
+
     protected override void Start()
     {
         animator = GetComponent<Animator>();
@@ -26,19 +28,27 @@ public class Player : MovingObject
     {
         if (GameManager.instance.playersTurn)
         {
-            int horizontal = 0;
-            int vertical = 0;
-
-            horizontal = (int)Input.GetAxisRaw("Horizontal");
-            vertical = (int)Input.GetAxisRaw("Vertical");
-            if (horizontal != 0)
+            
+            int horizontalInput = (int)Input.GetAxisRaw("Horizontal");
+            int verticalInput = (int)Input.GetAxisRaw("Vertical");
+            if (verticalInput == 0)
             {
-                vertical = 0;
+                verticalInputInUse = false;
+            }
+            if (horizontalInput == 0)
+            {
+                horizontalInputInUse = false;
             }
 
-            if (horizontal != 0 || vertical != 0)
+            if (verticalInput != 0 && !verticalInputInUse)
             {
-                AttemptMove<Wall>(horizontal, vertical);
+                verticalInputInUse = true;
+                AttemptMove<Wall>(horizontalInput, verticalInput);
+            }
+            if (horizontalInput != 0 && !horizontalInputInUse)
+            {
+                horizontalInputInUse = true;
+                AttemptMove<Wall>(horizontalInput, verticalInput);
             }
         }
     }
